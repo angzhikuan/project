@@ -20,4 +20,9 @@ public class SpringbootSsmApplication {
         System.out.println("aaaa");
     }
 
+    @Test
+    public void test2(){
+        System.out.println("true = angzhikuan ");
+    }
+
 }
