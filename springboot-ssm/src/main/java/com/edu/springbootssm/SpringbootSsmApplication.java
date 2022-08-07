@@ -1,5 +1,6 @@
 package com.edu.springbootssm;
 
+import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,11 @@ public class SpringbootSsmApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(SpringbootSsmApplication.class, args);
+    }
+
+    @Test
+    public void test1(){
+        System.out.println("aaaa");
     }
 
 }
