@@ -1,0 +1,16 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: zk199624
+      initial-size: 1
+      max-active: 20
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.edu.springbootssm.entity

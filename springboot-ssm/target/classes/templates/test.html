@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" th:inline="text">
+        .style1{
+            color: [[${color}]]
+        }
+    </style>
+</head>
+    <body>
+        价格：<label th:text="${price}"></label><br/>
+        字符串：<div th:text="${str}"></div>
+        <p th:inline="text" class="style1">图书名称：[[${book.bookName}]]</p>
+
+        <div th:object="${book}">
+            <p th:text="*{bookId}"></p>
+            <p th:text="*{bookName}"></p>
+            <p th:text="*{bookAuthor}"></p>
+        </div>
+
+        <table style="width: 600px" border="1" cellpadding="0">
+            <caption>图书信息列表</caption>
+            <thead>
+                <tr>
+                    <th>图书ID</th>
+                    <th>图书名称</th>
+                    <th>作者</th>
+                    <th>图书价格</th>
+                    <th>购买建议</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="b:${books}">
+                    <td th:text="${b.bookId}"></td>
+                    <td th:text="${b.bookName}"></td>
+                    <td th:text="${b.bookAuthor}"></td>
+                    <td th:text="${b.bookPrice}"></td>
+<!--                    <td th:if="${b.bookPrice}>40" style="color: blue">太贵</td>-->
+<!--                    <td th:if="${b.bookPrice}<=40" style="color: brown">建议购买</td>-->
+                    <td th:switch="${b.bookPrice}/10">
+                        <label th:case="3">建议购买</label>
+                        <label th:case="4">价格合理</label>
+                        <label th:case="*">不建议购买</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
